@@ -9,11 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: my-feature-branch # Ref can be a branch, a SHA or a tag
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
+      - uses: ithaque-renovation/latest-commit-date-action@v1
   sayHelloWorld:
     runs-on: ubuntu-latest
     steps:
