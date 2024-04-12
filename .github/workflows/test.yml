@@ -14,3 +14,10 @@ jobs:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
+      - uses: yumemi-inc/changed-files@v3
+        id: changed
+      - run: | 
+          for file in ${{ steps.changed.outputs.files }}; do
+          # do somethihg..
+          echo "$file"
+          done
